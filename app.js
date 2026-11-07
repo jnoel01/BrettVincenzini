@@ -1,11 +1,185 @@
-const projects=[
-{id:1,cardTitle:'4f-Orbital Covalency and Chemical Reactivity',status:'published',label:'Nature Chemistry · 2025',area:'Organometallic reactivity',title:'4f-orbital covalency enables a solid-state ring-opening isomerization in a Ce<sup>IV</sup>–cyclopropenyl complex',image:'project-1.png',alt:'Structural illustration of the cerium cyclopropenyl-to-allenyl ring-opening isomerization',summary:'How 4f-orbital covalency enables an unusual solid-state isomerization reaction, challenging conventional understanding of lanthanide chemistry.',body:'This work demonstrated the importance of 4f-orbital covalency in determining reactivity in lanthanide compounds. A cerium cyclopropenyl complex undergoes a ring-opening isomerization while preserving its single-crystal form, creating an opportunity to connect electronic structure directly with chemical behavior.',contribution:'Developed and optimized syntheses of compounds with direct Ce(IV)–C bonds and comparative transition-metal and actinide analogues. Used single-crystal methods to investigate solid-state transformations and characterize otherwise unstable products.',methods:'Organometallic synthesis · Single-crystal X-ray diffraction · Electronic structure–reactivity relationships',doi:'10.1038/s41557-025-01791-2'},
-{id:2,cardTitle:'Elucidation Thermal and Photochemical Reaction Mechanisms in Single Crystals',status:'published',label:'J. Am. Chem. Soc. · 2026',area:'Mechanisms & modeling',title:'Mechanistic Study of a Thermal- and Light-Driven Single-Crystal-to-Single-Crystal Transformation of an Organocerium Complex',image:'project-2.svg',alt:'Scientific graphic describing thermal and light-driven single-crystal transformation of an organocerium complex',summary:'How single-crystal-to-single-crystal reactions can be monitored through crystallography, quantitatively modeled in three dimensions, and mechanistically investigated through isotopic labeling.',body:'How can we extract meaningful reaction kinetics when light and crystal geometry influence what we observe? This study investigates the thermal and light-driven transformation of an organocerium complex using time-resolved single-crystal measurements and quantitative analysis.',contribution:'Developed SC-XRD methods to follow reactions within single crystals and built and validated a Python model for light-driven reactivity. Combined this work with solution-phase spectroscopy to investigate reaction mechanisms and decomposition pathways.',methods:'SC-XRD kinetics · Python modeling · Solution spectroscopy · Reaction mechanisms',doi:'10.1021/jacs.6c14543'},
-{id:3,cardTitle:'The Interplay of Molecular Symmetry, Bonding, and Electronic Structure in Cerium Metallocenes',status:'unpublished',label:'Unpublished · Submitted to Chemical Science',area:'Electronic structure',title:'Strong Electron Correlations and Multi-Configurational Ground States of Cp<sub>3</sub>CeX Compounds Manifest through Metal-Ligand Phi-Bonding Interactions',image:'project-3.svg',alt:'Scientific graphic showing electronic structure and metal–ligand bonding in Cp3CeX cerium compounds',summary:'How molecular symmetry and metal–ligand bonding influence electronic structure, revealing Kondo-like ground states in Ce(IV) metallocenes.',body:'This project investigates a class of Ce(IV) metallocenes with strongly correlated, multi-configurational electronic states. It examines the structural and symmetry-dependent origins of their behavior through the lens of metal–ligand phi-bonding interactions.',contribution:'Discovered a class of Ce(IV) metallocenes exhibiting strongly correlated electronic states and applied X-ray absorption spectroscopy measurements and modeling to investigate their electronic structure.',methods:'Cerium chemistry · XAS/XANES · Electronic structure analysis · Process Diagram'},
-{id:4,cardTitle:'Nickel and Cobalt Recovery from Laterite Ores',status:'unpublished',label:'Unpublished · Process development',area:'Critical metals recovery',title:'An Acid-Free Hydrometallurgical Process for End-to-End Refining of Nickel Laterites',image:'project-4.png',alt:'',summary:'Translating chemical insight into an integrated approach to nickel and cobalt recovery from diverse ores.',body:'This work develops an integrated, acid-free process for nickel and cobalt recovery from mineralogically diverse laterite feedstocks, connecting thermal pretreatment, mechanochemical leaching, and selective product precipitation.',contribution:'Developed and optimized the process across 10 distinct ore bodies. Under optimized single-pass extraction conditions, average Ni and Co recoveries reached 80% and 55%, respectively. Established selective precipitation methods, including a Ni-rich product exceeding 70% Ni purity on a metals basis.',methods:'Process development · Mineralogical and spectroscopic analysis · Porosity characterization · Quantitative modeling'}
+const projects = [
+  {
+    id: 1,
+    cardTitle: "4f-Orbital Covalency and Chemical Reactivity",
+    status: "published",
+    label: "Nature Chemistry · 2025",
+    area: "Organometallic reactivity",
+    title:
+      "4f-orbital covalency enables a solid-state ring-opening isomerization in a Ce<sup>IV</sup>–cyclopropenyl complex",
+    image: "project-1.png",
+    alt: "Structural illustration of the cerium cyclopropenyl-to-allenyl ring-opening isomerization",
+    summary:
+      "How 4f-orbital covalency enables an unusual solid-state isomerization reaction, challenging conventional understanding of lanthanide chemistry.",
+    body: "This work demonstrated the importance of 4f-orbital covalency in determining reactivity in lanthanide compounds. A cerium cyclopropenyl complex undergoes a ring-opening isomerization while preserving its single-crystal form, creating an opportunity to connect electronic structure directly with chemical behavior.",
+    contribution:
+      "Developed and optimized syntheses of compounds with direct Ce(IV)–C bonds and comparative transition-metal and actinide analogues. Used single-crystal methods to investigate solid-state transformations and characterize otherwise unstable products.",
+    methods:
+      "Organometallic synthesis · Single-crystal X-ray diffraction · Electronic structure–reactivity relationships",
+    doi: "10.1038/s41557-025-01791-2",
+  },
+  {
+    id: 2,
+    cardTitle:
+      "Elucidation Thermal and Photochemical Reaction Mechanisms in Single Crystals",
+    status: "published",
+    label: "J. Am. Chem. Soc. · 2026",
+    area: "Mechanisms & modeling",
+    title:
+      "Mechanistic Study of a Thermal- and Light-Driven Single-Crystal-to-Single-Crystal Transformation of an Organocerium Complex",
+    image: "project-2.svg",
+    alt: "Scientific graphic describing thermal and light-driven single-crystal transformation of an organocerium complex",
+    summary:
+      "How single-crystal-to-single-crystal reactions can be monitored through crystallography, quantitatively modeled in three dimensions, and mechanistically investigated through isotopic labeling.",
+    body: "How can we extract meaningful reaction kinetics when light and crystal geometry influence what we observe? This study investigates the thermal and light-driven transformation of an organocerium complex using time-resolved single-crystal measurements and quantitative analysis.",
+    contribution:
+      "Developed SC-XRD methods to follow reactions within single crystals and built and validated a Python model for light-driven reactivity. Combined this work with solution-phase spectroscopy to investigate reaction mechanisms and decomposition pathways.",
+    methods:
+      "SC-XRD kinetics · Python modeling · Solution spectroscopy · Reaction mechanisms",
+    doi: "10.1021/jacs.6c14543",
+  },
+  {
+    id: 3,
+    cardTitle:
+      "The Interplay of Molecular Symmetry, Bonding, and Electronic Structure in Cerium Metallocenes",
+    status: "unpublished",
+    label: "Unpublished · Submitted to Chemical Science",
+    area: "Electronic structure",
+    title:
+      "Strong Electron Correlations and Multi-Configurational Ground States of Cp<sub>3</sub>CeX Compounds Manifest through Metal-Ligand Phi-Bonding Interactions",
+    image: "project-3.svg",
+    alt: "Scientific graphic showing electronic structure and metal–ligand bonding in Cp3CeX cerium compounds",
+    summary:
+      "How molecular symmetry and metal–ligand bonding influence electronic structure, revealing Kondo-like ground states in Ce(IV) metallocenes.",
+    body: "This project investigates a class of Ce(IV) metallocenes with strongly correlated, multi-configurational electronic states. It examines the structural and symmetry-dependent origins of their behavior through the lens of metal–ligand phi-bonding interactions.",
+    contribution:
+      "Discovered a class of Ce(IV) metallocenes exhibiting strongly correlated electronic states and applied X-ray absorption spectroscopy measurements and modeling to investigate their electronic structure.",
+    methods:
+      "Cerium chemistry · XAS/XANES · Electronic structure analysis · Process Diagram",
+  },
+  {
+    id: 4,
+    cardTitle: "Nickel and Cobalt Recovery from Laterite Ores",
+    status: "unpublished",
+    label: "Unpublished · Process development",
+    area: "Critical metals recovery",
+    title:
+      "An Acid-Free Hydrometallurgical Process for End-to-End Refining of Nickel Laterites",
+    image: "project-4.png",
+    alt: "",
+    summary:
+      "Translating chemical insight into an integrated approach to nickel and cobalt recovery from diverse ores.",
+    body: "This work develops an integrated, acid-free process for nickel and cobalt recovery from mineralogically diverse laterite feedstocks, connecting thermal pretreatment, mechanochemical leaching, and selective product precipitation.",
+    contribution:
+      "Developed and optimized the process across 10 distinct ore bodies. Under optimized single-pass extraction conditions, average Ni and Co recoveries reached 80% and 55%, respectively. Established selective precipitation methods, including a Ni-rich product exceeding 70% Ni purity on a metals basis.",
+    methods:
+      "Process development · Mineralogical and spectroscopic analysis · Porosity characterization · Quantitative modeling",
+  },
 ];
-const grid=document.querySelector('#project-grid');const dialog=document.querySelector('#project-dialog');
-function render(filter='all'){grid.innerHTML=projects.filter(p=>filter==='all'||p.status===filter).map(p=>`<article class="project-card"><button class="figure-button" data-project="${p.id}" aria-label="Explore project ${p.id}: ${p.area}"><img src="assets/${p.image}" alt="${p.alt}" loading="lazy"><span class="expand" aria-hidden="true">↗</span></button><div class="project-meta"><span>0${p.id} / ${p.area}</span><span>${p.status}</span></div><h3>${p.cardTitle}</h3><p>${p.summary}</p><button class="details" data-project="${p.id}">Explore project <span aria-hidden="true">↗</span></button></article>`).join('')}
-render();document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false')});b.classList.add('selected');b.setAttribute('aria-pressed','true');render(b.dataset.filter)}));
-document.addEventListener('click',e=>{const button=e.target.closest('[data-project]');if(!button)return;const p=projects.find(p=>p.id===Number(button.dataset.project));document.querySelector('#dialog-content').innerHTML=`<p class="eyebrow">${p.label}</p><h2 class="modal-title" id="dialog-title">${p.title}</h2><img class="modal-image" src="assets/${p.image}" alt="${p.alt}"><div class="modal-body"><p>${p.body}</p><h3>My contribution</h3><p>${p.contribution}</p><h3>Methods & expertise</h3><p>${p.methods}</p></div><div class="modal-links">${p.doi?`<a class="button" href="https://doi.org/${p.doi}" target="_blank" rel="noopener">Read publication ↗</a>`:''}<a class="text-link" href="assets/${p.image}" target="_blank" rel="noopener">Open full-size graphic ↗</a></div>`;dialog.setAttribute('aria-labelledby','dialog-title');dialog.showModal();dialog.scrollTop=0;document.body.style.overflow='hidden'});
-function closeDialog(){dialog.close()};document.querySelector('.close').addEventListener('click',closeDialog);dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog()}});dialog.addEventListener('close',()=>document.body.style.overflow='');document.querySelector('#year').textContent=new Date().getFullYear();
+
+const grid = document.querySelector("#project-grid");
+const dialog = document.querySelector("#project-dialog");
+
+function render(filter = "all") {
+  grid.innerHTML = projects
+    .filter((p) => filter === "all" || p.status === filter)
+    .map(
+      (p) =>
+        `<article class="project-card">
+          <button
+            class="figure-button"
+            data-project="${p.id}"
+            aria-label="Explore project ${p.id}: ${p.area}"
+          >
+            <img src="assets/${p.image}" alt="${p.alt}" loading="lazy">
+            <span class="expand" aria-hidden="true">↗</span>
+          </button>
+          <div class="project-meta">
+            <span>0${p.id} / ${p.area}</span>
+            <span>${p.status}</span>
+          </div>
+          <h3>${p.cardTitle}</h3>
+          <p>${p.summary}</p>
+          <button class="details" data-project="${p.id}">
+            Explore project <span aria-hidden="true">↗</span>
+          </button>
+        </article>`,
+    )
+    .join("");
+}
+
+render();
+
+document.querySelectorAll("[data-filter]").forEach((b) =>
+  b.addEventListener("click", () => {
+    document.querySelectorAll("[data-filter]").forEach((x) => {
+      x.classList.remove("selected");
+      x.setAttribute("aria-pressed", "false");
+    });
+    b.classList.add("selected");
+    b.setAttribute("aria-pressed", "true");
+    render(b.dataset.filter);
+  }),
+);
+
+document.addEventListener("click", (e) => {
+  const button = e.target.closest("[data-project]");
+  if (!button) return;
+  const p = projects.find((p) => p.id === Number(button.dataset.project));
+  document.querySelector("#dialog-content").innerHTML =
+    `<p class="eyebrow">${p.label}</p>
+    <h2 class="modal-title" id="dialog-title">${p.title}</h2>
+    <img class="modal-image" src="assets/${p.image}" alt="${p.alt}">
+    <div class="modal-body">
+      <p>${p.body}</p>
+      <h3>My contribution</h3>
+      <p>${p.contribution}</p>
+      <h3>Methods & expertise</h3>
+      <p>${p.methods}</p>
+    </div>
+    <div class="modal-links">
+      ${
+        p.doi
+          ? `<a
+              class="button"
+              href="https://doi.org/${p.doi}"
+              target="_blank"
+              rel="noopener"
+            >Read publication ↗</a>`
+          : ""
+      }
+      <a
+        class="text-link"
+        href="assets/${p.image}"
+        target="_blank"
+        rel="noopener"
+      >Open full-size graphic ↗</a>
+    </div>`;
+  dialog.setAttribute("aria-labelledby", "dialog-title");
+  dialog.showModal();
+  dialog.scrollTop = 0;
+  document.body.style.overflow = "hidden";
+});
+
+function closeDialog() {
+  dialog.close();
+}
+
+document.querySelector(".close").addEventListener("click", closeDialog);
+
+dialog.addEventListener("click", (e) => {
+  if (e.target === dialog) {
+    const r = dialog.getBoundingClientRect();
+    if (
+      e.clientX < r.left ||
+      e.clientX > r.right ||
+      e.clientY < r.top ||
+      e.clientY > r.bottom
+    )
+      closeDialog();
+  }
+});
+
+dialog.addEventListener("close", () => (document.body.style.overflow = ""));
+
+document.querySelector("#year").textContent = new Date().getFullYear();
