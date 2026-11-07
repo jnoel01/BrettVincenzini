@@ -66,10 +66,10 @@ const projects = [
     title:
       "An Acid-Free Hydrometallurgical Process for End-to-End Refining of Nickel Laterites",
     image: "project-4.png",
-    alt: "",
+    alt: "Scientific figure showing iron mineral phase transformations, product phase quantification, and optimization of nickel and cobalt extraction from laterite ore",
     summary:
       "Translating chemical insight into an integrated approach to nickel and cobalt recovery from diverse ores.",
-    body: "This work develops an integrated, acid-free process for nickel and cobalt recovery from mineralogically diverse laterite feedstocks, connecting thermal pretreatment, mechanochemical leaching, and selective product precipitation.",
+    body: "This work develops an integrated, acid-free process for nickel and cobalt recovery from mineralogically diverse laterite feedstocks, connecting thermal pretreatment, leaching, and selective product precipitation.",
     contribution:
       "Developed and optimized the process across 10 distinct ore bodies. Under optimized single-pass extraction conditions, average Ni and Co recoveries reached 80% and 55%, respectively. Established selective precipitation methods, including a Ni-rich product exceeding 70% Ni purity on a metals basis.",
     methods:
