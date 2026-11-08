@@ -52,6 +52,12 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246, 244, 237, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .wordmark {
   font:
@@ -167,7 +173,6 @@ h2 {
 .hero-art {
   background: #e7e9dd;
   padding: 22px 22px 25px;
-  transform: rotate(1deg);
   border: 1px solid #d8ddce;
   border-radius: 3px;
 }
@@ -553,9 +558,6 @@ dialog::backdrop {
   }
   h2 {
     font-size: 36px;
-  }
-  .hero-art {
-    transform: none;
   }
   .hero-art img {
     margin: 25px 0;
