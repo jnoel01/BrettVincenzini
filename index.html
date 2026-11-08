@@ -191,7 +191,46 @@
               Unpublished <span>02</span>
             </button>
           </div>
-          <div class="project-grid" id="project-grid"></div>
+          <div
+            class="project-carousel"
+            aria-label="Selected projects carousel"
+            aria-roledescription="carousel"
+          >
+            <div
+              class="carousel-viewport"
+              id="project-carousel-viewport"
+              tabindex="0"
+              aria-describedby="project-position"
+            >
+              <div class="project-grid" id="project-grid"></div>
+            </div>
+            <div class="carousel-controls">
+              <button
+                class="carousel-arrow"
+                id="project-prev"
+                type="button"
+                aria-label="Show previous project"
+              >
+                <span aria-hidden="true">←</span>
+              </button>
+              <div class="carousel-progress">
+                <span class="carousel-position" id="project-position"></span>
+                <div
+                  class="carousel-dots"
+                  id="project-dots"
+                  aria-label="Choose a project"
+                ></div>
+              </div>
+              <button
+                class="carousel-arrow"
+                id="project-next"
+                type="button"
+                aria-label="Show next project"
+              >
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
       <section class="wrap contact section" id="contact">

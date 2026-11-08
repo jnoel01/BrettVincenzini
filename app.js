@@ -11,9 +11,9 @@ const projects = [
     alt: "Structural illustration of the cerium cyclopropenyl-to-allenyl ring-opening isomerization",
     summary:
       "How 4f-orbital covalency enables an unusual solid-state isomerization reaction, challenging conventional understanding of lanthanide chemistry.",
-    body: "This work demonstrated the importance of 4f-orbital covalency in determining reactivity in lanthanide compounds. A cerium cyclopropenyl complex undergoes a ring-opening isomerization while preserving its single-crystal form, creating an opportunity to connect electronic structure directly with chemical behavior.",
+    body: "Among a series of isostructural and isoelectronic d- and f-block compounds, an organocerium complex uniquely undergoes a single-crystal-to-single-crystal ring-opening isomerization, providing an opportunity to directly investigate the relationship between metal–ligand bonding and chemical reactivity. Through combined experimental and theoretical studies, this work demonstrated the importance of 4f-orbital covalency in determining the reactivity of lanthanide compounds. The findings support a mechanism in which substantial 4f-orbital contributions to the covalent Ce(IV)=C multiple bond of a Ce(IV)–vinylcarbene intermediate stabilizes this species and nearby transition states along the reaction coordinate, reducing the kinetic barrier for the forward reaction.",
     contribution:
-      "Developed and optimized syntheses of compounds with direct Ce(IV)–C bonds and comparative transition-metal and actinide analogues. Used single-crystal methods to investigate solid-state transformations and characterize otherwise unstable products.",
+      "Developed and optimized synthetic protocols for tetravalent transition-metal, lanthanide, and actinide compounds featuring direct metal–carbon bonds. Applied a suite of characterization techniques, including UV–vis–NIR, Raman, IR, and NMR spectroscopy, single-crystal X-ray diffraction, and elemental analysis, to establish molecular structures, verify sample compositions, and investigate the spectroscopic and electronic properties of these systems.\n\nCo-developed <i>in situ</i>, sequential single-crystal X-ray diffraction methods to monitor the progression of the Ce(IV)–cyclopropenyl ring-opening transformation and characterize its solution-unstable product. Integrated observations from solid-state reactivity, spectroscopic characterization, and theoretical calculations to develop a mechanistic interpretation connecting 4f-orbital covalency with the distinct chemical reactivity of the organocerium complex.",
     methods:
       "Organometallic synthesis · Single-crystal X-ray diffraction · Electronic structure–reactivity relationships",
     doi: "10.1038/s41557-025-01791-2",
@@ -79,13 +79,31 @@ const projects = [
 
 const grid = document.querySelector("#project-grid");
 const dialog = document.querySelector("#project-dialog");
+const carouselViewport = document.querySelector("#project-carousel-viewport");
+const previousProject = document.querySelector("#project-prev");
+const nextProject = document.querySelector("#project-next");
+const projectPosition = document.querySelector("#project-position");
+const projectDots = document.querySelector("#project-dots");
+
+let visibleProjects = [];
+let currentSlide = 0;
+let touchStartX = null;
+let suppressProjectClick = false;
 
 function render(filter = "all") {
-  grid.innerHTML = projects
-    .filter((p) => filter === "all" || p.status === filter)
+  visibleProjects = projects.filter(
+    (p) => filter === "all" || p.status === filter,
+  );
+  currentSlide = 0;
+  grid.innerHTML = visibleProjects
     .map(
-      (p) =>
-        `<article class="project-card">
+      (p, index) =>
+        `<article
+          class="project-card"
+          aria-label="${p.cardTitle}"
+          aria-roledescription="slide"
+          data-slide="${index}"
+        >
           <button
             class="figure-button"
             data-project="${p.id}"
@@ -94,21 +112,98 @@ function render(filter = "all") {
             <img src="assets/${p.image}" alt="${p.alt}" loading="lazy">
             <span class="expand" aria-hidden="true">↗</span>
           </button>
-          <div class="project-meta">
-            <span>0${p.id} / ${p.area}</span>
-            <span>${p.status}</span>
+          <div class="project-card-content">
+            <div class="project-meta">
+              <span>0${p.id} / ${p.area}</span>
+              <span>${p.status}</span>
+            </div>
+            <h3>${p.cardTitle}</h3>
+            <p>${p.summary}</p>
+            <button class="details" data-project="${p.id}">
+              Explore project <span aria-hidden="true">↗</span>
+            </button>
           </div>
-          <h3>${p.cardTitle}</h3>
-          <p>${p.summary}</p>
-          <button class="details" data-project="${p.id}">
-            Explore project <span aria-hidden="true">↗</span>
-          </button>
         </article>`,
+    )
+    .join("");
+  updateCarousel();
+}
+
+function updateCarousel() {
+  grid.style.transform = `translate3d(-${currentSlide * 100}%, 0, 0)`;
+
+  grid.querySelectorAll(".project-card").forEach((slide, index) => {
+    const isCurrent = index === currentSlide;
+    slide.setAttribute("aria-hidden", String(!isCurrent));
+    if (isCurrent) slide.removeAttribute("inert");
+    else slide.setAttribute("inert", "");
+  });
+
+  projectPosition.textContent = `Project ${currentSlide + 1} of ${visibleProjects.length}`;
+  previousProject.disabled = visibleProjects.length < 2;
+  nextProject.disabled = visibleProjects.length < 2;
+  projectDots.innerHTML = visibleProjects
+    .map(
+      (project, index) =>
+        `<button
+          class="carousel-dot${index === currentSlide ? " active" : ""}"
+          type="button"
+          data-slide-to="${index}"
+          aria-label="Show project ${index + 1}: ${project.cardTitle}"
+          aria-current="${index === currentSlide ? "true" : "false"}"
+        ></button>`,
     )
     .join("");
 }
 
+function goToSlide(index) {
+  const slideCount = visibleProjects.length;
+  currentSlide = (index + slideCount) % slideCount;
+  updateCarousel();
+}
+
 render();
+
+previousProject.addEventListener("click", () => goToSlide(currentSlide - 1));
+nextProject.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+projectDots.addEventListener("click", (e) => {
+  const dot = e.target.closest("[data-slide-to]");
+  if (dot) goToSlide(Number(dot.dataset.slideTo));
+});
+
+carouselViewport.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") {
+    e.preventDefault();
+    goToSlide(currentSlide - 1);
+  }
+  if (e.key === "ArrowRight") {
+    e.preventDefault();
+    goToSlide(currentSlide + 1);
+  }
+});
+
+carouselViewport.addEventListener(
+  "touchstart",
+  (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  },
+  { passive: true },
+);
+
+carouselViewport.addEventListener(
+  "touchend",
+  (e) => {
+    if (touchStartX === null) return;
+    const distance = e.changedTouches[0].clientX - touchStartX;
+    touchStartX = null;
+    if (Math.abs(distance) < 50) return;
+    suppressProjectClick = true;
+    goToSlide(currentSlide + (distance < 0 ? 1 : -1));
+    window.setTimeout(() => (suppressProjectClick = false), 300);
+  },
+  { passive: true },
+);
 
 document.querySelectorAll("[data-filter]").forEach((b) =>
   b.addEventListener("click", () => {
@@ -125,6 +220,10 @@ document.querySelectorAll("[data-filter]").forEach((b) =>
 document.addEventListener("click", (e) => {
   const button = e.target.closest("[data-project]");
   if (!button) return;
+  if (suppressProjectClick) {
+    e.preventDefault();
+    return;
+  }
   const p = projects.find((p) => p.id === Number(button.dataset.project));
   document.querySelector("#dialog-content").innerHTML =
     `<p class="eyebrow">${p.label}</p>
@@ -133,7 +232,10 @@ document.addEventListener("click", (e) => {
     <div class="modal-body">
       <p>${p.body}</p>
       <h3>My contribution</h3>
-      <p>${p.contribution}</p>
+      ${p.contribution
+        .split("\n\n")
+        .map((paragraph) => `<p>${paragraph}</p>`)
+        .join("")}
       <h3>Methods & expertise</h3>
       <p>${p.methods}</p>
     </div>
