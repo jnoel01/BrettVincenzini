@@ -21,7 +21,7 @@ const projects = [
   {
     id: 2,
     cardTitle:
-      "Elucidation Thermal and Photochemical Reaction Mechanisms in Single Crystals",
+      "Elucidation of Thermal and Photochemical Reaction Mechanisms in Single Crystals",
     status: "published",
     label: "J. Am. Chem. Soc. · 2026",
     area: "Mechanisms & modeling",
@@ -31,9 +31,9 @@ const projects = [
     alt: "Scientific graphic describing thermal and light-driven single-crystal transformation of an organocerium complex",
     summary:
       "How single-crystal-to-single-crystal reactions can be monitored through crystallography, quantitatively modeled in three dimensions, and mechanistically investigated through isotopic labeling.",
-    body: "How can we extract meaningful reaction kinetics when light and crystal geometry influence what we observe? This study investigates the thermal and light-driven transformation of an organocerium complex using time-resolved single-crystal measurements and quantitative analysis.",
+    body: "Building on our previous discovery of 4f-orbital covalency-dependent reactivity in an organocerium complex, this study investigated the mechanisms of the thermal and photochemical single-crystal-to-single-crystal isomerization reaction. Time-resolved crystallography, isotopic labeling, temperature-dependent kinetics, and solution-phase reactivity studies revealed distinct mechanistic frameworks for the two pathways.\n\nThe thermal reaction exhibits a near-unity kinetic isotope effect (KIE), qualitatively consistent with theoretical predictions. In contrast, the markedly accelerated photochemical reaction displays an inverse KIE and negligible temperature dependence, consistent with an excited-state pathway that may bypass the discrete Ce(IV)–vinylcarbene intermediate implicated in the thermal mechanism. Quantitative analysis of photochemical kinetics required the development of a three-dimensional model accounting for progressive light attenuation within the crystal. Complementary solution-phase studies provided further evidence for distinct thermal and photochemical mechanisms.",
     contribution:
-      "Developed SC-XRD methods to follow reactions within single crystals and built and validated a Python model for light-driven reactivity. Combined this work with solution-phase spectroscopy to investigate reaction mechanisms and decomposition pathways.",
+      "Applied sequential, time-resolved single-crystal X-ray diffraction methods to monitor thermal and photochemical transformations and quantify their reaction kinetics. Developed and validated a three-dimensional kinetic model incorporating crystal geometry and spatially dependent light attenuation to quantitatively describe photochemical conversion.\n\nInvestigated kinetic isotope effects and temperature-dependent reactivity to distinguish the thermal and photochemical pathways, evaluating experimental observations against theoretical predictions. Examined complementary solution-phase reactions and organic decomposition products to identify mechanistic differences between the two processes. Integrated crystallographic, kinetic, isotopic, spectroscopic, and computational evidence to formulate and evaluate mechanistic interpretations of the observed reactivity.",
     methods:
       "SC-XRD kinetics · Python modeling · Solution spectroscopy · Reaction mechanisms",
     doi: "10.1021/jacs.6c14543",
@@ -230,7 +230,10 @@ document.addEventListener("click", (e) => {
     <h2 class="modal-title" id="dialog-title">${p.title}</h2>
     <img class="modal-image" src="assets/${p.image}" alt="${p.alt}">
     <div class="modal-body">
-      <p>${p.body}</p>
+      ${p.body
+        .split("\n\n")
+        .map((paragraph) => `<p>${paragraph}</p>`)
+        .join("")}
       <h3>My contribution</h3>
       ${p.contribution
         .split("\n\n")
