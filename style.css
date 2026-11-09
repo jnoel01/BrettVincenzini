@@ -548,6 +548,16 @@ dialog::backdrop {
   color: var(--ink);
   margin-top: 25px;
 }
+.modal-body h3.modal-methods-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.modal-methods {
+  font-size: clamp(8px, 1.15vw, 12px);
+  line-height: 1.5;
+  letter-spacing: -0.05px;
+  white-space: nowrap;
+}
 .modal-links {
   display: flex;
   gap: 25px;
@@ -736,6 +746,10 @@ dialog::backdrop {
   }
   .modal-title {
     font-size: 27px;
+  }
+  .modal-methods {
+    font-size: 12px;
+    white-space: normal;
   }
 }
 @media (prefers-reduced-motion: reduce) {

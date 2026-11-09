@@ -15,7 +15,7 @@ const projects = [
     contribution:
       "Developed and optimized synthetic protocols for tetravalent transition-metal, lanthanide, and actinide compounds featuring direct metal–carbon bonds. Applied a suite of characterization techniques, including UV–vis–NIR, Raman, IR, and NMR spectroscopy, single-crystal X-ray diffraction, and elemental analysis, to establish molecular structures, verify sample compositions, and investigate the spectroscopic and electronic properties of these systems.\n\nCo-developed <i>in situ</i>, sequential single-crystal X-ray diffraction methods to monitor the progression of the Ce(IV)–cyclopropenyl ring-opening transformation and characterize its solution-unstable product. Integrated observations from solid-state reactivity, spectroscopic characterization, and theoretical calculations to develop a mechanistic interpretation connecting 4f-orbital covalency with the distinct chemical reactivity of the organocerium complex.",
     methods:
-      "Organometallic synthesis · Single-crystal X-ray diffraction · Electronic structure–reactivity relationships",
+      "Molecular synthesis · X-ray crystallography · Molecular spectroscopy · Electronic-structure analysis · Mechanistic interpretation",
     doi: "10.1038/s41557-025-01791-2",
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     contribution:
       "Applied sequential, time-resolved single-crystal X-ray diffraction methods to monitor thermal and photochemical transformations and quantify their reaction kinetics. Developed and validated a three-dimensional kinetic model incorporating crystal geometry and spatially dependent light attenuation to quantitatively describe photochemical conversion.\n\nInvestigated kinetic isotope effects and temperature-dependent reactivity to distinguish the thermal and photochemical pathways, evaluating experimental observations against theoretical predictions. Examined complementary solution-phase reactions and organic decomposition products to identify mechanistic differences between the two processes. Integrated crystallographic, kinetic, isotopic, spectroscopic, and computational evidence to formulate and evaluate mechanistic interpretations of the observed reactivity.",
     methods:
-      "SC-XRD kinetics · Python modeling · Solution spectroscopy · Reaction mechanisms",
+      "Time-resolved crystallography · Reaction kinetics · Three-dimensional modeling · Isotopic labeling · Mechanistic analysis",
     doi: "10.1021/jacs.6c14543",
   },
   {
@@ -55,7 +55,7 @@ const projects = [
     contribution:
       "Discovered a class of Ce(IV) metallocenes exhibiting strongly correlated electronic states and applied X-ray absorption spectroscopy measurements and modeling to investigate their electronic structure.",
     methods:
-      "Cerium chemistry · XAS/XANES · Electronic structure analysis · Process Diagram",
+      "Organometallic synthesis · X-ray absorption spectroscopy · Electronic-structure analysis · Structure−property relationships",
   },
   {
     id: 4,
@@ -73,7 +73,7 @@ const projects = [
     contribution:
       "Developed and optimized the process across 10 distinct ore bodies. Under optimized single-pass extraction conditions, average Ni and Co recoveries reached 80% and 55%, respectively. Established selective precipitation methods, including a Ni-rich product exceeding 70% Ni purity on a metals basis.",
     methods:
-      "Process development · Mineralogical and spectroscopic analysis · Porosity characterization · Quantitative modeling",
+      "Chemical-process development · Mineral characterization · Spectroscopic analysis · Quantitative data analysis",
   },
 ];
 
@@ -230,6 +230,7 @@ document.addEventListener("click", (e) => {
     <h2 class="modal-title" id="dialog-title">${p.title}</h2>
     <img class="modal-image" src="assets/${p.image}" alt="${p.alt}">
     <div class="modal-body">
+      <h3>Project summary</h3>
       ${p.body
         .split("\n\n")
         .map((paragraph) => `<p>${paragraph}</p>`)
@@ -239,8 +240,8 @@ document.addEventListener("click", (e) => {
         .split("\n\n")
         .map((paragraph) => `<p>${paragraph}</p>`)
         .join("")}
-      <h3>Methods & expertise</h3>
-      <p>${p.methods}</p>
+      <h3 class="modal-methods-title">Methods & expertise</h3>
+      <p class="modal-methods">${p.methods}</p>
     </div>
     <div class="modal-links">
       ${
